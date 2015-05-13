@@ -1,11 +1,12 @@
-function countWords(inputWords){
-    var newObj = {};
-    inputWords.reduce(function(pre, cur, index, arr){
-        newObj[cur] = ++ newObj[cur] || 1 ;
-        
-    }, {})
-    return newObj;
+function countWords(arr) {
+    return arr.reduce(function(countMap, word) {
+        console.info("countMap: ", countWords, "word :", word);
+            countMap[word] = ++countMap[word] || 1 // increment or initialize to 1
+            return countMap
+        }, {}) // second argument to reduce initialises countMap to {}
 }
+module.exports = countWords
 
+var inputWords = ['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian'];
 
-module.exports = countWords;
+console.info(countWords(inputWords));
